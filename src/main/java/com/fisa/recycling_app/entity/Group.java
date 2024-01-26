@@ -8,17 +8,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection = "Members")
-public class Member {
+@Document(collection = "Groups")
+public class Group {
     @Id
-    private ObjectId idMember;
-    private String firstName;
-    private String lastName;
-    private Address address;
-    private String mail;
-    @DBRef
-    private ObjectId groupId; // Référence au groupe par ObjectId
+    private ObjectId noGroup;
+    List<ObjectId> memberIds; // Références aux membres par ObjectId
 }

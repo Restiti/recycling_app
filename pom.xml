@@ -53,6 +53,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>springboot-docker-compose</finalName>
     </build>
 
 </project>

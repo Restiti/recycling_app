@@ -20,6 +20,7 @@ public class MemberController {
 
     @PostMapping("/insertMember")
     public Member getMember(@RequestBody Member m){
+        System.out.println(m);
         return memberRepo.save(m);
     }
 

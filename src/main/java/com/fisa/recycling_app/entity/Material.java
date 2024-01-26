@@ -11,14 +11,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(collection = "Members")
-public class Member {
+@Document(collection = "Materials")
+public class Material {
     @Id
-    private ObjectId idMember;
-    private String firstName;
-    private String lastName;
-    private Address address;
-    private String mail;
-    @DBRef
-    private ObjectId groupId; // Référence au groupe par ObjectId
+    private ObjectId noserie;
+
+    String marque;
+    String modele;
+    MaterialType materialType;
+    double prix;
+    private ObjectId stockageId; // Référence à Group par ObjectId
 }
