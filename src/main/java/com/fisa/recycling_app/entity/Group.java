@@ -15,6 +15,12 @@ import java.util.List;
 @Document(collection = "Groups")
 public class Group {
     @Id
-    private ObjectId noGroup;
-    List<ObjectId> memberIds; // Références aux membres par ObjectId
+    private String id;
+    private String name;
+    @DBRef
+    private List<Member> managers;
+    private int no;
+    private String street;
+    private String city;
+    private int ZIP_code;
 }

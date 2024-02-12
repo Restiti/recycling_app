@@ -14,11 +14,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Materials")
 public class Material {
     @Id
-    private ObjectId noserie;
+    private String id; // Renommé pour plus de clarté
 
-    String marque;
-    String modele;
-    MaterialType materialType;
-    double prix;
-    private ObjectId stockageId; // Référence à Group par ObjectId
+    private String marque;
+
+    private String modele;
+
+    private MaterialType materialType;
+
+    private double prix;
+
+    @DBRef
+    private Group stockage; // Utilisation de @DBRef pour référencer un Group
 }
