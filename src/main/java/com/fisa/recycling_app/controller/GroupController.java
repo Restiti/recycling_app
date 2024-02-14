@@ -97,4 +97,14 @@ public class GroupController {
         }
     }
 
+    @DeleteMapping("/deleteGroup/{idGroup}")
+    public ResponseEntity<?> deleteMember(@PathVariable String idGroup) {
+        System.out.println("Je delete: " + idGroup);
+        return groupRepo.findById(idGroup)
+                .map(group -> {
+                    groupRepo.delete(group);
+                    return ResponseEntity.ok().build();
+                }).orElse(ResponseEntity.notFound().build());
+    }
+
 }

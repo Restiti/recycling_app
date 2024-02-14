@@ -53,6 +53,11 @@ public class MemberController {
             memberToUpdate.setFirstName(memberDetails.getFirstName());
             memberToUpdate.setLastName(memberDetails.getLastName());
             memberToUpdate.setMail(memberDetails.getMail());
+            memberToUpdate.setZIP_code(memberDetails.getZIP_code());
+            memberToUpdate.setNo(memberDetails.getNo());
+            memberToUpdate.setStreet(memberDetails.getStreet());
+            memberToUpdate.setCity(memberDetails.getCity());
+            memberToUpdate.setRole(memberDetails.getRole());
             // Assurez-vous d'ajouter ici la logique pour mettre à jour tous les champs nécessaires, y compris les champs imbriqués comme l'adresse
 
             Member updatedMember = memberRepo.save(memberToUpdate); // Sauvegarde les modifications
