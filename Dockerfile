@@ -7,6 +7,6 @@ RUN mvn -f /home/app/pom.xml clean package -DskipTests
 # Pakage stage
 FROM openjdk:21-jdk-slim
 VOLUME /tmp
-COPY --from=build /home/app/target/*.jar enfiletesbaskets.jar
+COPY --from=build /home/app/target/*.jar recycling.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/enfiletesbaskets.jar"]
+ENTRYPOINT ["java","-jar","/recycling.jar"]
