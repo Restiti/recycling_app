@@ -10,3 +10,19 @@ services:
       - "8080:8080" # Mappe le port 8080 du conteneur au port 8080 de l'hôte
     volumes:
       - ./logs:/logs # Exemple : monter un volume pour les logs, à personnaliser si nécessaire
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/your_database_name # Configuration MongoDB pour l'application Spring Boot
+    depends_on:
+      - mongo # Assure que MongoDB démarre avant le service Spring Boot
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-container
+    ports:
+      - "27017:27017" # Mappe le port 27017 de MongoDB
+    volumes:
+      - mongo_data:/data/db # Persistance des données MongoDB
+
+volumes:
+  mongo_data:
