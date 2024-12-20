@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  springboot-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: springboot-api-container
+    ports:
+      - "8080:8080" # Mappe le port 8080 du conteneur au port 8080 de l'hôte
+    volumes:
+      - ./logs:/logs # Exemple : monter un volume pour les logs, à personnaliser si nécessaire
