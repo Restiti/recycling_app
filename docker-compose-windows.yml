@@ -12,13 +12,13 @@ services:
     depends_on:
       - mongo
 
-  #frontend-api-nginx:
-  #  image: restiti/nginx-recycling-front:latest
-  #  container_name: frontend
-  #  ports:
-  #    - 4200:4200
-  #  depends_on:
-  #    - springboot-api
+  frontend-api-nginx:
+    image: eladio59/recycling:front
+    container_name: frontend
+    ports:
+      - 4200:4200
+    depends_on:
+      - springboot-api
 
   mongo:
     image: mongo:latest

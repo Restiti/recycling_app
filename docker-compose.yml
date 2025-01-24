@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: springboot-api-container
+    container_name: springboot-api
     ports:
       - "8080:8080" # Mappe le port 8080 du conteneur au port 8080 de l'hôte
     volumes:
