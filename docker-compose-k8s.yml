@@ -1,0 +1,32 @@
+
+services:
+  springboot-api:
+
+    image: restiti/recycling:springboot-mongodb
+    container_name: springboot-api
+    ports:
+      - "8080:8080" # Mappe le port 8080 du conteneur au port 8080 de l'hôte
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/your_database_name
+    depends_on:
+      - mongo
+
+  #frontend-api-nginx:
+  #  image: restiti/nginx-recycling-front:latest
+  #  container_name: frontend
+  #  ports:
+  #    - 4200:4200
+  #  depends_on:
+  #    - springboot-api
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-container
+    ports:
+      - "27017:27017" # Mappe le port 27017 de MongoDB
+    volumes:
+      - mongo_data:/data/db # Persistance des données MongoDB
+
+volumes:
+  mongo_data:
